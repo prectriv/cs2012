@@ -8,10 +8,9 @@ public class HeapValidator implements IValidator {
      *
      * @param someTree a tree you wish to loop over
      */
-    public HeapValidator(IBinTree someTree){
+    public HeapValidator(IBinTree someTree) {
         someTree.accept(this);
     }
-
 
     /**
      * A callback function for when the current traversal reaches a NodeBT
@@ -19,7 +18,8 @@ public class HeapValidator implements IValidator {
      * @param data  the data in the current node
      * @param left  the left subtree of the current node
      * @param right the right subtree of the current node
-     * @return true when the traversal should continue; false if it should stop early (short-circuiting)
+     * @return true when the traversal should continue; false if it should stop
+     *         early (short-circuiting)
      */
     @Override
     public boolean visit(int data, IBinTree left, IBinTree right) {
@@ -29,7 +29,8 @@ public class HeapValidator implements IValidator {
             return false;
         }
 
-        int rightData = right.getRoot().isPresent() ? right.getRoot().get() : Integer.MIN_VALUE;;
+        int rightData = right.getRoot().isPresent() ? right.getRoot().get() : Integer.MIN_VALUE;
+        ;
         if (data < rightData) {
             this.valid = false;
             return false;
@@ -41,7 +42,8 @@ public class HeapValidator implements IValidator {
     /**
      * A callback function for when the current traversal reaches an EmptyBT
      *
-     * @return true when the traversal should continue (backtracking); false if it should stop early (short-circuiting)
+     * @return true when the traversal should continue (backtracking); false if it
+     *         should stop early (short-circuiting)
      */
     @Override
     public boolean visit() {

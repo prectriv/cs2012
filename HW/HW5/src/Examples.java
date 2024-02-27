@@ -2,7 +2,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -14,13 +13,13 @@ import org.junit.Test;
 
 public class Examples {
     Votes v1 = new Votes(1, 2, 3);
-    Votes v2 = new Votes(4,5,6);
-    Votes v3 = new Votes(7,8,9);
+    Votes v2 = new Votes(4, 5, 6);
+    Votes v3 = new Votes(7, 8, 9);
     HashMap<String, Votes> map = new HashMap<String, Votes>();
 
-
     @Test
-    public void mostFirstVotesTest() throws AlreadyNominatedException, CandidateNotNominatedException, MoreThanOnceException {
+    public void mostFirstVotesTest()
+            throws AlreadyNominatedException, CandidateNotNominatedException, MoreThanOnceException {
         ElectionData e = new ElectionData(new MostFirstVotesStrategy());
         e.nominateCandidate("Winner");
         e.nominateCandidate("Middle");
@@ -30,7 +29,7 @@ public class Examples {
     }
 
     @Test(expected = AlreadyNominatedException.class)
-    public void buggyTest1() throws  CandidateNotNominatedException, MoreThanOnceException, AlreadyNominatedException {
+    public void buggyTest1() throws CandidateNotNominatedException, MoreThanOnceException, AlreadyNominatedException {
         ElectionData e = new ElectionData(new MostFirstVotesStrategy());
         e.nominateCandidate("Winner");
         e.nominateCandidate("Winner");
@@ -104,7 +103,8 @@ public class Examples {
     }
 
     @Test
-    public void mostAgreeableTest() throws AlreadyNominatedException, CandidateNotNominatedException, MoreThanOnceException {
+    public void mostAgreeableTest()
+            throws AlreadyNominatedException, CandidateNotNominatedException, MoreThanOnceException {
         ElectionData e = new ElectionData(new MostAgreeableStrategy());
         e.nominateCandidate("Winner");
         e.nominateCandidate("Middle");
@@ -116,7 +116,8 @@ public class Examples {
     }
 
     @Test
-    public void changeGetCandidatesTest() throws AlreadyNominatedException, MoreThanOnceException, CandidateNotNominatedException {
+    public void changeGetCandidatesTest()
+            throws AlreadyNominatedException, MoreThanOnceException, CandidateNotNominatedException {
         ElectionData e = new ElectionData(new MostAgreeableStrategy());
         e.setStrategy(new MostFirstVotesStrategy());
 
@@ -128,7 +129,8 @@ public class Examples {
     }
 
     @Test
-    public void changeMostAgreeableTest() throws AlreadyNominatedException, CandidateNotNominatedException, MoreThanOnceException {
+    public void changeMostAgreeableTest()
+            throws AlreadyNominatedException, CandidateNotNominatedException, MoreThanOnceException {
         ElectionData e = new ElectionData(new MostFirstVotesStrategy());
         e.setStrategy(new MostAgreeableStrategy());
 
@@ -141,12 +143,10 @@ public class Examples {
         assertEquals(e.calculateWinner().get(), "Middle");
     }
 
-
     @Test
     public void notNominatedGetterTest() {
         CandidateNotNominatedException c = new CandidateNotNominatedException("Joe");
         assertEquals(c.getCandidate(), "Joe");
     }
-
 
 }

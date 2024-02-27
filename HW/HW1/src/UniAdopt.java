@@ -5,7 +5,8 @@ public abstract class UniAdopt extends Adoptable {
     /**
      * Creates a profile for an adoptable pet-to-be
      *
-     * @param name          the name of the animal with no title(s) nor credential(s)
+     * @param name          the name of the animal with no title(s) nor
+     *                      credential(s)
      * @param age           the age of the pet in months
      * @param currentWeight the current weight of the pet in grams
      * @param whereabouts   the last known location of the pet as a 2D coordinate
@@ -15,7 +16,8 @@ public abstract class UniAdopt extends Adoptable {
     }
 
     /**
-     * Constructs a name from the adoptable pet-to-be's base name and their title and credentials
+     * Constructs a name from the adoptable pet-to-be's base name and their title
+     * and credentials
      *
      * @return the full name of the pet in "title name, cred" format.
      */
@@ -31,7 +33,8 @@ public abstract class UniAdopt extends Adoptable {
      */
     @Override
     public Boolean honorablyTitled() {
-        if(Objects.equals(this.name, "")) return false;
+        if (Objects.equals(this.name, ""))
+            return false;
         Boolean test1 = (this.name.contains("Prince") ||
                 this.name.contains("Princess") ||
                 this.name.contains("Duke") ||
@@ -51,13 +54,14 @@ public abstract class UniAdopt extends Adoptable {
 
     /**
      * Takes a title and adds it to the adoptable pet's name
-     * If the adoptable already has a title, it should replace the old title with a new one
+     * If the adoptable already has a title, it should replace the old title with a
+     * new one
      *
      * @param title the title to bestow
      */
     @Override
     public void bestowTitle(String title) {
-        if(this.name.contains("Prince") ||
+        if (this.name.contains("Prince") ||
                 this.name.contains("Princess") ||
                 this.name.contains("Duke") ||
                 this.name.contains("Dutchess") ||
@@ -66,13 +70,17 @@ public abstract class UniAdopt extends Adoptable {
                 this.name.contains("Baroness") ||
                 this.name.contains("Count") ||
                 this.name.contains("Countess") ||
-                this.name.contains("Judge")) this.name = title + " " + this.name.split(" ")[0].length();
-        else this.name = title + " " + this.name;
+                this.name.contains("Judge"))
+            this.name = title + " " + this.name.split(" ")[0].length();
+        else
+            this.name = title + " " + this.name;
     }
 
     /**
-     * Takes a credential and adds it to the end of the adoptable pet's name after a ","
-     * If the name already has a credential, add this credential after the current one(s) space separated
+     * Takes a credential and adds it to the end of the adoptable pet's name after a
+     * ","
+     * If the name already has a credential, add this credential after the current
+     * one(s) space separated
      *
      * @param credential the credential to add
      */

@@ -1,6 +1,7 @@
-public class SnowReading extends SensorReading{
+public class SnowReading extends SensorReading {
     /**
-     * Construct a weather reading from a temperature and amount (snow, rain, dust/debris, fog, etc)
+     * Construct a weather reading from a temperature and amount (snow, rain,
+     * dust/debris, fog, etc)
      *
      * @param tempC the temperature of the sensor reading in degrees Celsius
      * @param cm    the amount of some weather phenomenon in centimeters
@@ -14,8 +15,8 @@ public class SnowReading extends SensorReading{
     }
 
     @Override
-    public boolean equals(Object o){
-        if(! (o instanceof SnowReading)){
+    public boolean equals(Object o) {
+        if (!(o instanceof SnowReading)) {
             return false;
         }
 
@@ -30,6 +31,6 @@ public class SnowReading extends SensorReading{
     public String toString() {
         String temp = this.tempC == -999 ? "Err" : Integer.toString(this.tempC) + "C";
         String cm = this.cm == -999 ? "Err" : Integer.toString(this.cm) + "cm";
-        return(String.format("%s:%s", temp, cm));
+        return (String.format("%s:%s", temp, cm));
     }
 }

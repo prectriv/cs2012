@@ -15,7 +15,7 @@ public interface iProtected {
      * Gets total subscribers gained on the specific month and year provided
      *
      * @param month - a month when 0 represents January and 11 represents December
-     * @param year - a year
+     * @param year  - a year
      * @return total subscribers during that month.
      */
     public int totalSubscribers(int month, int year);
@@ -24,7 +24,7 @@ public interface iProtected {
      * Adds today's Analytical data to the fields and adds one day to the calendar.
      *
      * @param analytics - a LinkedList of Analytics
-     * @param date  - a gregorean callender representing todays date.
+     * @param date      - a gregorean callender representing todays date.
      */
     public void addTodaysAnalytics(LinkedList<Analytics> analytics, GregorianCalendar date);
 

@@ -14,13 +14,15 @@ public abstract class SensorReading {
     public Integer cm;
 
     /**
-     * Construct a weather reading from a temperature and amount (snow, rain, dust/debris, fog, etc)
+     * Construct a weather reading from a temperature and amount (snow, rain,
+     * dust/debris, fog, etc)
+     * 
      * @param tempC the temperature of the sensor reading in degrees Celsius
-     * @param cm the amount of some weather phenomenon in centimeters
+     * @param cm    the amount of some weather phenomenon in centimeters
      */
-    public SensorReading(Integer tempC, Integer cm){
+    public SensorReading(Integer tempC, Integer cm) {
         this.tempC = tempC;
-        this.cm = (! cm.equals(-999)) && cm < 0 ? 0 : cm;
+        this.cm = (!cm.equals(-999)) && cm < 0 ? 0 : cm;
     }
 
 }

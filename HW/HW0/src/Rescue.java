@@ -29,12 +29,10 @@ public class Rescue {
             return 0;
 
         double answer = 0;
-        int ctr = 0;
         for (int i = 0; i < puppyAges.length; i++) {
             if (puppyAges[i] < 0)
                 continue;
             answer = answer + puppyAges[i];
-            ctr++;
         }
         return answer / puppyAges.length;
     };
@@ -46,7 +44,7 @@ public class Rescue {
      * @return boolean expressing if it passed tests
      */
     public static boolean honorablyTitled(String name) {
-        if (name == "")
+        if (name.equals(""))
             return false;
         Boolean test1 = (name.contains("Prince") ||
                 name.contains("Princess") ||
@@ -114,7 +112,6 @@ public class Rescue {
             double errorTolerance) {
         int index = Math.min(currentWeights.size(), targetWeights.size());
         // int index = currentWeights.size() > targetWeights.size() ?
-        // targetWeights.size() : currentWeights.size();
         int answer = 0;
 
         for (int i = 0; i < index; i++) {

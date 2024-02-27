@@ -6,20 +6,21 @@ public class DailyRatings {
     private LinkedList<Integer> rankings;
     private LinkedList<Integer> subscribers;
 
-    public DailyRatings(GregorianCalendar currentDate, LinkedList<Integer> rankings, LinkedList<Integer> subscribers){
+    public DailyRatings(GregorianCalendar currentDate, LinkedList<Integer> rankings, LinkedList<Integer> subscribers) {
         this.currentDate = currentDate;
         this.rankings = rankings;
         this.subscribers = subscribers;
     }
-    public GregorianCalendar getDate(){
+
+    public GregorianCalendar getDate() {
         return (GregorianCalendar) this.currentDate.clone();
     }
 
-    public LinkedList<Integer> getRankings(){
+    public LinkedList<Integer> getRankings() {
         return new LinkedList<>(this.rankings);
     }
 
-    public LinkedList<Integer> getSubscribers(){
+    public LinkedList<Integer> getSubscribers() {
         return new LinkedList<>(this.subscribers);
     }
 }

@@ -24,29 +24,32 @@ public class CatastropheZone extends UniZone {
     }
 
     /**
-     * Using the last known sensor data for an adoptable, finds the closest adoptable to some location
+     * Using the last known sensor data for an adoptable, finds the closest
+     * adoptable to some location
      *
      * @param location the 2D top-down coordinate we are searching near
-     * @return The data profile of the adoptable last-seen nearest to that coordinate or null if the zone is empty
-     * If two adoptables are equal distances from a coord, produce the one added to the zone latest.
+     * @return The data profile of the adoptable last-seen nearest to that
+     *         coordinate or null if the zone is empty
+     *         If two adoptables are equal distances from a coord, produce the one
+     *         added to the zone latest.
      */
     @Override
     public Adoptable closestTo(Coord location) {
-        if(this.cats.size() == 0) return null;
+        if (this.cats.size() == 0)
+            return null;
 
         Adoptable answer = this.cats.get(0);
         Double value = answer.whereabouts.distanceFrom(location);
 
         for (int i = 1; i < this.cats.size(); i++) {
             double v = this.cats.get(i).whereabouts.distanceFrom(location);
-            if (v  < value) {
+            if (v < value) {
                 answer = this.cats.get(i);
                 value = v;
             }
         }
         return answer;
     }
-
 
     /**
      * changes the feed stores of the zone,
@@ -55,14 +58,14 @@ public class CatastropheZone extends UniZone {
      * @param food     the type of food being added
      * @param quantity the amount of food being added or subtracted
      * @return a string of the form "Species: # unit of food-type | ..."
-     * where # is either a number or the text "unknown" if the amount is currently < 0
+     *         where # is either a number or the text "unknown" if the amount is
+     *         currently < 0
      */
     @Override
     public String changeFeed(String food, Integer quantity) {
-        if(food.equals("dry")) {
+        if (food.equals("dry")) {
             this.dry += quantity;
-        }
-        else if(food.equals("wet")) {
+        } else if (food.equals("wet")) {
             this.wet += quantity;
         }
         String d = this.dry < 0 ? "unknown" : Integer.toString(this.dry);
@@ -72,10 +75,13 @@ public class CatastropheZone extends UniZone {
     }
 
     /**
-     * Find the adoptable pets-to-be in the zone that are strictly over or under weight
+     * Find the adoptable pets-to-be in the zone that are strictly over or under
+     * weight
      *
-     * @param threshold a threshold of how over or under weight each adoptable pet-to-be can be
-     * @return The list of adoptable animals that are currently beyond (> or <) the threshold of their target weight
+     * @param threshold a threshold of how over or under weight each adoptable
+     *                  pet-to-be can be
+     * @return The list of adoptable animals that are currently beyond (> or <) the
+     *         threshold of their target weight
      */
     @Override
     public LinkedList<Adoptable> weighIn(Double threshold) {
