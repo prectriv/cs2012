@@ -1,5 +1,9 @@
 # Homeworks
 
+> [!Note]
+- JUnit4 is used for all of the tests.
+- This repo only contains my code with some sourcecode given by Prof. Ahrens
+
 ## HW0
 - Introduction to Java.
 
