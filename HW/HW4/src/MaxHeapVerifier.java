@@ -1,6 +1,6 @@
 public class MaxHeapVerifier {
 
-    public boolean verifyAdd(IBinTree before, int added, IBinTree after){
+    public boolean verifyAdd(IBinTree before, int added, IBinTree after) {
 
         boolean MaxHeap = new HeapValidator(after).isValid();
         boolean AllElements = new ContainsAllValidator(before, after).isValid();
@@ -10,7 +10,7 @@ public class MaxHeapVerifier {
         return MaxHeap && AllElements && Contains && Size;
     }
 
-    public boolean verifyRemoveRoot(IBinTree before, int root, IBinTree after){
+    public boolean verifyRemoveRoot(IBinTree before, int root, IBinTree after) {
 
         boolean MaxHeap = new HeapValidator(after).isValid();
         boolean AllElements = new ContainsAllValidator(after, before).isValid();

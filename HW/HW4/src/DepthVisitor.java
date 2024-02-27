@@ -1,15 +1,19 @@
 public class DepthVisitor implements IVisitor {
     private int minDepth;
     private int maxDepth;
-    public int getMinDepth(){
+
+    public int getMinDepth() {
         return minDepth;
     }
-    public int getMaxDepth(){
+
+    public int getMaxDepth() {
         return maxDepth;
     }
-    public DepthVisitor(IBinTree b){
+
+    public DepthVisitor(IBinTree b) {
         b.accept(this);
     }
+
     @Override
     public boolean visit(int data, IBinTree left, IBinTree right) {
         DepthVisitor dLeft = new DepthVisitor(left);
