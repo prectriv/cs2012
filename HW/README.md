@@ -13,7 +13,7 @@
 - Encapsulation
 
 ## HW4
-- 
+- Binary Search Tree
 
 ## HW5
-- 
+- Exceptions HashMaps and IO
